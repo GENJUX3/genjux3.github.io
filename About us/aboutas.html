@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Team Page</title>
+    <link rel="icon" href="../Common Image/web.jpg" type="image/x-icon" />
+    <style>
+      /* General Styling */
+      body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        /* background-image: url('5555.jpg');
+        background-size: cover;
+        background-repeat: no-repeat; */
+        /* background-color: #ffffff; */
+    }
+    body {
+      position: relative;
+  }
+  body::before{
+      
+      background-image: url('');
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      filter: blur(7px);
+      z-index: -1;
+  }
+  a {
+      text-decoration: none;
+      color: #fff;
+  }
+  /* Header */
+  .header {
+      background-color:rgb(255, 255, 255);
+      backdrop-filter: blur(50px);
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5em 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+      box-shadow: #000000 0px 0px 10px;
+       
+      * {
+          padding: 0;
+          margin: 0;
+          font-family:sans-serif;
+          }
+          body
+          {
+          background-color: #000000;
+          }
+          ul {
+          list-style: none;
+          background-color:rgba(0, 0, 0, 0);
+          text-align: center;
+          color: #000000;
+          
+          }
+          ul li {
+          display: inline-block;
+          position: relative;
+          
+
+          }
+          ul li a {
+          display: block;
+          padding: 20px 25px;
+          color: #000000;
+          text-decoration: none;
+          text-align: center;
+          font-size: 16px;
+          transition:  transform 0.3s ease-in-out;
+          border-radius: 10px;
+          
+          }
+          ul li a:hover {
+              transform: scale(0.84);
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+          }
+          
+          ul li ul.dropdown li {
+          display: block;
+          background-color: #ffffff;
+          margin: 2px 0px;
+          
+          }
+          ul li ul.dropdown {
+          width:auto;
+          margin-left: 5px;
+          background-color: #ffffff;
+          position: absolute;
+          z-index: 999;
+          display: none;
+          border-radius: 3px;
+          border-color: rgb(0, 0, 0);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 1.5);
+          }
+          
+          ul li a:hover {
+          background: rgb(0, 0, 0);
+          border-radius: 10px;
+          color: #ffffff;
+          
+          }
+          ul li a:active {
+              background: rgb(95, 242, 105);
+              border-radius: 10px;
+              color: #ffffff;
+              
+          }
+          ul li:hover ul.dropdown{
+          display: block;
+          }
+      
+  }
+  
+  .header img {
+     width: 130px;
+     margin-right: 10px;
+     transition: transform 0.1s;
+
+  }
+  .header img:active {
+      max-width: 120px;
+      margin-right: 10px;
+      transform:scale(0.9);
+
+   }
+  
+  
+
+  .search-bar {
+      display: flex;
+      align-items: center;
+      width: 25%;
+      margin-top: 0px;
+      position: relative;
+      right: 30px;
+      
+  }
+  .search-bar input {
+      width:300px;
+      padding: 0.5em;
+      border: rgb(0, 0, 0) 1px solid;
+      border-radius: 4px;
+      background-color: transparent;
+      margin-left: 0px;
+      margin-right: 8px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease-in-out;
+      
+  }
+  .search-bar input:focus {
+      width:300px;
+      padding: 0.5em;
+      border: rgb(0, 0, 0) 1px solid;
+      border-radius: 4px;
+      background-color: transparent;
+      margin-left: 0px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      transform: scale(1.05);
+  }
+  .search-bar button {
+      padding: 0.5em 1em;
+      border: none;
+      background:rgb(0, 0, 0);
+      color:rgb(255, 255, 255);
+      border-radius: 4px;
+      margin-left: 0.5em;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  .search-bar button:hover {
+      padding: 0.5em 1em;
+      border: none;
+      background-color:rgb(73, 245, 119);
+      color:rgb(255, 255, 255);
+      border-radius: 4px;
+      margin-left: 0.5em;
+  }
+  .search-bar button:active {
+      padding: 0.5em 1em;
+      border: none;
+      background-color:rgb(247, 176, 82);
+      color:black;
+      border-radius: 4px;
+      margin-left: 0.5em;
+      transition: transform 0.2s;
+      transform: scale(0.80);
+  }
+  .nav {
+      margin-top: 0px;
+      height: 60px;
+      word-spacing: 0px;
+      display: flex;
+      align-items: center;
+  }
+  .nav a {
+      margin: 0px;
+      font-size: 2em;
+      word-spacing: 2px;
+  }
+
+      /* Container to align content */
+      .container {
+        margin-left: 10%; /* Shift everything to the left by 10% */
+        margin-right: 10%;
+        padding: 20px;
+        text-align: left; /* Align text to the left */
+      }
+
+      /* Titles */
+      h2 {
+        margin-top: 10px 0px ;
+        color: #000000;
+        font-size: 1.6em;
+        margin-bottom: 50px;
+      }
+
+
+      p {
+        font-size: 1em;
+        text-align: justify;
+        margin-top: 10px;
+        line-height: 1.6;
+        color: #555;
+        text-align: center;
+      }
+
+      /* Table Styling */
+      table {
+        width: 80%; /* Adjusted table size */
+        border-collapse: collapse;
+        margin: 80px 100px;
+        background-color: rgba(255, 255, 255, 0.428);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        overflow: hidden;
+        justify-content: center;
+        animation : appear linear;
+        animation-timeline: view();
+        animation-range: entry 0% ;
+      }
+      @keyframes appear {
+        0% {
+            opacity: 0.7;
+            scale: 0.5;
+        }
+        100% {
+            opacity: 1;
+            scale: 1;
+        }
+    }
+
+      th,
+      td {
+        border: 1px solid #dddddd74;
+        padding: 10px; /* Smaller padding */
+        text-align: center;
+        font-size: 0.9em; /* Smaller font size */
+        transition:transform 0.3s;
+      }
+      th,td:hover{
+        background: #8a6f4d70;
+        transform: scale(1.1);
+        border-radius: 10px;
+      }
+
+      th {
+        background-color: #8a6f4d;
+        color: white;
+        font-style: italic;
+        font-family: "Georgia", serif;
+      }
+
+
+
+      
+      .box{
+        width: 100%;
+        height: 250px;
+        margin-bottom: 20px;
+        padding: 20px 40px;
+        background-color: #f9f9f94b;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        text-align: center;
+        margin-top: 50px;
+        position: relative;
+        top:50px;
+      }
+      .box:hover{
+        background-color: #e0e0e0;
+        background: #8a6f4d2a;
+        
+      }
+
+      .box-2 {
+          width: 30%;
+          padding: 0.1px;
+          background-color: #f9f9f94b;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+          text-align: center;
+          transition:transform 0.5s;
+          position: relative;
+          top:50px;
+          left: 400px;
+      }
+      .box-2:hover{
+        background-color: #e0e0e0;
+        background: #8a6f4d2a;
+        transform: scale(1.1);
+      }
+      .footer {
+        background: #000000;
+        color: #ffffff;
+        padding: 2em 0;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+        text-align: center;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        margin-bottom: 0px;
+    }
+
+    .footer-section {
+        flex: 1;
+        padding: 0 20px;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        color: #ffffff; /* لون العنوان */
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin: 10px 0;
+    }
+
+    .footer-section ul li a {
+        color: #868686;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-section ul li a:hover {
+        color: #ffffff; /* لون الروابط عند التمرير */
+    }
+
+    .social-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* تباعد بين الروابط */
+    }
+
+    .social-links a {
+        color: #868686;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+        color: #ffffff; /* لون الروابط عند التمرير */
+    }
+
+    .footer-bottom {
+        border-top: 1px solid #444;
+        padding-top: 10px;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .footer-bottom #hh {
+        margin-left: 10px;
+        font-size: 0.9rem;
+    }
+    .bin a img {
+        display: inline-block;
+        max-width: 30px;
+        max-height: 30px;
+        color: thistle;
+        background-color: #FFF;
+        margin-left: 10px;
+        margin-top: 5px;
+        padding:15px;
+        transition: transform 0.3s ease-in-out;
+    
+    }
+    .bin a img:hover {
+        display: inline;
+        background-color: burlywood;
+        border-radius: 10px;
+        width: 50px;
+        height: 50px;
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        /* filter: blur(5px);
+        transition: filter 0.5s ease-in-out; */
+        transform: scale(0.8);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        
+    }
+    .bin a img:active {
+        background-color:rgb(172, 143, 105);
+        border-radius: 10px;
+    }
+
+
+    @keyframes fall {
+      0% {
+          transform: translateY(-100px);
+      }
+      100% {
+          transform: translateY(100vh);
+      }
+  }
+
+  .falling-icon {
+      position: absolute;
+      animation: fall 10s linear infinite;
+      font-size: 24px;
+      color: rgba(255, 255, 255, 0.634);
+  }
+
+  .falling-icon:nth-child(1) { left: 5%; animation-duration: 12s; }
+  .falling-icon:nth-child(2) { left: 15%; animation-duration: 15s; }
+  .falling-icon:nth-child(3) { left: 25%; animation-duration: 10s; }
+  .falling-icon:nth-child(4) { left: 35%; animation-duration: 14s; }
+  .falling-icon:nth-child(5) { left: 45%; animation-duration: 11s; }
+  .falling-icon:nth-child(6) { left: 55%; animation-duration: 13s; }
+  .falling-icon:nth-child(7) { left: 65%; animation-duration: 16s; }
+  .falling-icon:nth-child(8) { left: 75%; animation-duration: 9s; }
+  .falling-icon:nth-child(9) { left: 85%; animation-duration: 12s; }
+  .falling-icon:nth-child(10) { left: 95%; animation-duration: 14s; }
+      
+    </style>
+
+  </head>
+  <body>
+    <header class="header">
+        <a href="../index.html" alt="home">
+            <img src="../Common Image/web.jpg" alt="Resin Art Moon Store" style="width: 120px; height:45px; margin:10px 60px ;position: relative;
+            right: 93px; bottom :1px" class="logo">
+        </a>  
+
+          <div class="search-bar">
+            <input type="text" placeholder="Search for anything">
+            <button>
+              <a href="#">Search</a>
+            </button> 
+          </div>
+
+          <nav class="nav">
+            <ul>
+              <li><a href="../index.html">الصفحة الرئيسية</a></li>
+              <li>
+                <a href="../Covers\covers.html">الاستبدالات &#x25BE;</a>
+                        <ul class="dropdown">
+                            <!-- <li><a href="Categories\web.html">Free Fire</a></li> directs us to the accessories page -->
+                            <!-- <li><a href="Covers\covers.html">Sanalika</a></li> directs us to the covers page -->
+                            <!-- <li><a href="key chains\key_chain.html">Pubg</a></li> directs us to the kaychains page -->
+                            <!-- <li><a href="trays\Trays_site.html">بروفايلات</a></li> directs us to the tray page -->
+                            <!-- <li><a href="wall clocks\wall_clocks.html">جواهر</a></li> directs us to the wall clocks page -->
+                        </ul>
+                    </li>
+
+                    <li><a href="../task2.html">النقاط: <span id="points-counter">0</span></a></li>
+                    <!--directs us to the the contact page where you can reach out to us for further assistance :) -->
+            </ul>
+      </nav>
+      
+    <div class="bin">
+        <!-- <a href="#">
+            <img src="../Common Image/cart.jpg" alt="CART" style="width:60px;height:60px;">
+        </a> -->
+
+        <a href="../Register\login.html">
+            <img src="../Common Image\login.jpg" alt="login" style="width:60px;height:60px;position: relative;
+            left: 10px;">
+        </a>                        
+            
+        </div>       
+      </header>
+
+      <div class="falling-icon">🏆</div>
+      <div class="falling-icon">⭐</div>
+      <div class="falling-icon">🎉</div>
+      <div class="falling-icon">🎖️</div>
+      <div class="falling-icon">🏅</div>
+      <div class="falling-icon">🎊</div>
+      <div class="falling-icon">🎈</div>
+      <div class="falling-icon">🏆</div>
+      <div class="falling-icon">⭐</div>
+      <div class="falling-icon">🎉</div>
+
+    <!-- Main Content -->
+    <div class="container">
+      <!-- Team Introduction -->
+      <div class="box">
+      <h2>من نحن</h2>
+      <p>
+        أهلا بكم في صفحتنا , نحن فريق عمل متحدون لتقديم أفضل الخدمات لكم. نحن نقدم لكم مجموعة متنوعة من الاستبدالات والهدايا التي تناسب جميع الأذواق. نحن نعمل بجد لتحقيق رضاكم ونأمل أن تجدوا ما تبحثون عنه هنا.
+          وهذه صفحة خاصة بشباب مصرية تعمل لتسهيل الحياة على الناس وتقديم الخدمات بأفضل شكل ممكن بأقل  ما يمكنكم تقديمه لنا وهدف  هذه الصفحة اتاحة للجميع للاستفادة من الخدمات المقدمة من قبلناوسيتم عمل فاعليات اسبوعية في الالعاب  وشكرا لكم على مشاركتكم  موقعنا  :)
+      </p></div>
+      
+
+      
+    <script>
+      // تحديث عدد النقاط في الهيدر عند تحميل الصفحة
+      window.onload = function() {
+          let totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
+          document.getElementById('points-counter').textContent = totalPoints;
+      };
+
+  </script>
+    
+  </body>
+  <footer class="footer">
+    <div class="footer-content">
+        <!-- من نحن -->
+        <div class="footer-section about">
+            <h3>من نحن</h3>
+            <ul>
+                <li><a href="../About us/aboutas.html">ضغط هنا</a></li>
+                <!-- <li><a href="#example2">مثال 2</a></li>
+                <li><a href="#example3">مثال 3</a></li> -->
+            </ul>
+        </div>
+
+        <!-- اتصل بنا -->
+        <div class="footer-section contact">
+            <h3>اتصل بنا</h3>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61550113192768" target="_blank">فيسبوك</a>
+                <a href="http://wa.me/+201278515002" target="_blank">واتساب</a>
+                <!-- <a href="http://instagram.com" target="_blank">إنستجرام</a> -->
+            </div>
+        </div>
+
+        <!-- السياسة والخصوصية -->
+        <div class="footer-section policy">
+            <h3>السياسة والخصوصية</h3>
+            <ul>
+                <li><a href="https://www.termsfeed.com/live/93ba118c-c2e5-4871-8d9e-3ffe90006c36">السياسة والخصوصية</a></li>
+                <li><a href="../usage-policy.html">سياسة الاستخدام</a></li>
+                <li><a href="https://www.termsfeed.com/live/f9fb4905-a57d-4323-98f5-7222921fb8ae">الشروط والأحكام</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- حقوق النشر -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 SanaPro. جميع الحقوق محفوظة.</p>
+    </div>
+</footer>
+</html>

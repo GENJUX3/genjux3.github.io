@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="icon" href="../Common Image/web.jpg" type="image/x-icon" />
+
+    <header class="header">
+        <div class="alarm">
+            <h3>تنبيه : برجاء عدم أدخال اي بيانات تخص أي لعبة سواء سناليكا او ببجي او فري فاير</h3>
+        </div>
+    </header>
+
+    <style>
+        /* Basic settings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* لون خلفية بنفسجي مائل للأزرق */
+            overflow-x: hidden;
+            
+        }
+
+        body::before {
+            filter: blur(7px);
+            z-index: -1;
+        }
+
+        .header {
+            margin-top: 0px;
+            width: 100%;
+            height: 60px;
+            background-color: rgba(255, 0, 0, 0.605);
+            padding: 10px;
+        }
+        .alarm {
+           margin-top: 10px;
+           text-align: center;
+           color: #ffffff; 
+        }
+
+        /* Container styling */
+        .container {
+            background: #ffffffad;
+            margin-top:-40px;
+
+            margin-left: 100px;
+            padding: 1.5rem;
+            border-radius: 15px;
+            max-width: 350px;
+            width: 100%;
+            height: 460px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            box-shadow: #000000b0 0 0 8px;
+            margin-bottom: 50px;
+        }
+        .danger {
+            position: relative;
+            top: 20px;
+            width: 300px;
+            height: 30px;
+            background-color: rgb(203, 24, 24);
+            border-radius: 10px;
+            text-align: center;
+            padding: 5px;
+            color: #fff;
+        }
+        
+            
+
+
+
+        h2 {
+            color: #000000;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Input field styling */
+        .input-field {
+            width: 100%;
+            padding: 0.6rem;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            border: none;
+            background: #ffffff;
+            color: #000000;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .input-field:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            transform: scale(1.02);
+            background: #dbdbdb;
+        }
+
+        /* Button styling */
+        .btn {
+            width: 100%;
+            padding: 0.6rem;
+            margin-top: 10px;
+            background-color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.292);
+        }
+
+        .btn:hover {
+            background-color: rgb(36, 193, 89);
+            transform: scale(0.9);
+        }
+        .btn:focus{
+            background-color: rgb(255, 179, 38);
+        }
+
+        /* Link styling */
+        .link {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .link:hover{
+        
+            color: rgb(61, 253, 71);
+        }
+        .link:focus{
+            color: rgb(61, 253, 71);
+        }
+
+        /* Register field */
+        .register {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333;
+            color: #000000;
+        }
+
+        /**.footer {
+            background: #2d0357;
+            color: #000000;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+            z-index: 999;
+        }
+
+        .footer a img {
+            margin: 10px;
+            width: 40px;
+            height: 40px;
+        }**/
+        /* تنسيق الفوتر */
+        .footer {
+            background: #000000;
+            color: #ffffff;
+            padding: 2em 0;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            z-index: 999;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: #ffffff; /* لون العنوان */
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin: 10px 0;
+        }
+
+        .footer-section ul li a {
+            color: #868686;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ffffff; /* لون الروابط عند التمرير */
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* تباعد بين الروابط */
+        }
+
+        .social-links a {
+            color: #868686;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ffffff; /* لون الروابط عند التمرير */
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Animation for falling icons */
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        .falling-icon {
+            position: absolute;
+            animation: fall 10s linear infinite;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.366);
+        }
+
+        .falling-icon:nth-child(1) { left: 5%; animation-duration: 12s; }
+        .falling-icon:nth-child(2) { left: 15%; animation-duration: 15s; }
+        .falling-icon:nth-child(3) { left: 25%; animation-duration: 10s; }
+        .falling-icon:nth-child(4) { left: 35%; animation-duration: 14s; }
+        .falling-icon:nth-child(5) { left: 45%; animation-duration: 11s; }
+        .falling-icon:nth-child(6) { left: 55%; animation-duration: 13s; }
+        .falling-icon:nth-child(7) { left: 65%; animation-duration: 16s; }
+        .falling-icon:nth-child(8) { left: 75%; animation-duration: 9s; }
+        .falling-icon:nth-child(9) { left: 85%; animation-duration: 12s; }
+        .falling-icon:nth-child(10) { left: 95%; animation-duration: 14s; }
+        .para h1 {
+            color: #000000;
+            position: relative;
+            left: 880px;
+            top: 250px;
+        }
+        .para h3  {
+            color: #000000;
+            position: relative;
+            left: 320px;
+            top: 250px;
+            align-items: center;
+            text-align: center;
+        }
+        .para h4  {
+            color: #000000;
+            position: relative;
+            left: 300px;
+            top: 250px;
+            align-items: center;
+            text-align: center;
+        }
+        .content{
+            opacity: 0;
+            transform: translateY(50px);
+            animation: moveUp 1s forwards;
+        }
+        @keyframes moveUp{
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- Falling icons -->
+    <div class="falling-icon">🏆</div>
+    <div class="falling-icon">⭐</div>
+    <div class="falling-icon">🎉</div>
+    <div class="falling-icon">🎖️</div>
+    <div class="falling-icon">🏅</div>
+    <div class="falling-icon">🎊</div>
+    <div class="falling-icon">🎈</div>
+    <div class="falling-icon">🏆</div>
+    <div class="falling-icon">⭐</div>
+    <div class="falling-icon">🎉</div>
+    <div class="content">
+      <div class="para">
+        <h1> ! SanaPro مـرحبـا بكـم في عالـم </h1><br>
+        <h3>قـم بعمـل المهمـات , أربـح النقـاط , أستبـدلها بالجـوائـز , فـاعلـيات أسبـوعـية</h3><br>
+          <h4 id="h3">!كـن جزء من مجتمع مليء بالحماس و الأثارة</h4><br>
+        <h3>!سجل دخولك الأن</h3>
+    </div>  
+    </div>
+    
+
+    <!-- Login container -->
+    <div class="container">
+        <h2><strong>تسجيـل دخـول</strong></h2>
+        <form>
+            <input type="email" placeholder="Email" class="input-field" required>
+            <input type="password" placeholder="Password" class="input-field" required>
+            <button type="submit" class="btn">تسجيل دخول</button>
+            <a href="fopass1.html" class="link">نسيت كلمة السر ؟</a>
+        </form>
+        <div class="register">
+            <p><b> لا تمتلك حساب ؟</b></p>
+            <button onclick="window.location.href='regester2.html';" class="btn">!سـجل حساب جديد</button>
+        </div>
+        <div class="danger">
+            <p><b>لا تقوم بأدخال الايميل او كلمة السر الخاصة باللعبة</b></p>
+        </div>
+    </div>
+
+
+    <!-- <footer class="footer">
+        <div>
+            <a href="facebook.com">
+                <img src="#" alt="facebook" style="width:40px;height:40px;">
+            </a>
+            <a href="instagram.com">
+                <img src="#" alt="instagram" style="width:40px;height:40px;">
+            </a>
+        </div>
+        <p>&copy; 2024 Moon Store. All rights reserved.</p>
+    </footer> -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- من نحن -->
+            <div class="footer-section about">
+                <h3>من نحن</h3>
+                <ul>
+                    <li><a href="../About us/aboutas.html">ضغط هنا</a></li>
+                    <!-- <li><a href="#example2">مثال 2</a></li>
+                    <li><a href="#example3">مثال 3</a></li> -->
+                </ul>
+            </div>
+    
+            <!-- اتصل بنا -->
+            <div class="footer-section contact">
+                <h3>اتصل بنا</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61550113192768" target="_blank">فيسبوك</a>
+                    <a href="http://wa.me/+201278515002" target="_blank">واتساب</a>
+                    <!-- <a href="http://instagram.com" target="_blank">إنستجرام</a> -->
+                </div>
+            </div>
+    
+            <!-- السياسة والخصوصية -->
+            <div class="footer-section policy">
+                <h3>السياسة والخصوصية</h3>
+                <ul>
+                    <li><a href="https://www.termsfeed.com/live/93ba118c-c2e5-4871-8d9e-3ffe90006c36">السياسة والخصوصية</a></li>
+                    <li><a href="../usage-policy.html">سياسة الاستخدام</a></li>
+                    <li><a href="https://www.termsfeed.com/live/f9fb4905-a57d-4323-98f5-7222921fb8ae">الشروط والأحكام</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- حقوق النشر -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 SanaPro. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    
+
+    
+</body>
+</html>

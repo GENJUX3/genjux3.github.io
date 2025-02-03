@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link rel="icon" href="../Common Image/web.jpg" type="image/x-icon" />
+    <style>
+        /* Basic settings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* لون خلفية بنفسجي مائل للأزرق */
+            overflow-x: hidden;
+            
+        }
+
+        body::before {
+            filter: blur(7px);
+            z-index: -1;
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        /* Container styling */
+        .container {
+            background: #ffffffce;
+            margin-top:100px;
+
+            margin-left: 600px;
+            padding: 1.5rem;
+            border-radius: 15px;
+            max-width: 350px;
+            width: 100%;
+            height: 450px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            box-shadow: #000000b0 0 0 8px;
+            margin-bottom: 50px;
+        }
+        .danger {
+            position: relative;
+            top: 20px;
+            width: 300px;
+            height: 30px;
+            background-color: rgb(203, 24, 24);
+            border-radius: 10px;
+            text-align: center;
+            padding: 5px;
+            color: #fff;
+        }
+        h2 {
+            color: #000000;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+
+        /* Input field styling */
+        .input-field {
+            width: 100%;
+            padding: 0.6rem;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            border: none;
+            background: #ffffff;
+            color: #000000;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .input-field:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            transform: scale(1.02);
+            background: #dbdbdb;
+        }
+
+        /* Button styling */
+        .btn {
+            width: 100%;
+            padding: 0.6rem;
+            margin-top: 10px;
+            background-color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn:hover {
+            background-color: rgb(36, 193, 89);
+            transform: scale(0.9);
+        }
+        .btn:focus{
+            background-color: rgb(255, 179, 38);
+        }
+
+        /* Link styling */
+        .link {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .link:hover,
+        .link:focus {
+            color: rgb(61, 253, 71);
+        }
+        /* Textarea styling */
+        textarea {
+            width: 100%;
+            padding: 0.9rem;
+            margin-bottom: 1rem;
+            border-radius: 20px;
+            border: none;
+            background: #f1f1f1;
+            color: #333;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            resize: none; /* Prevent resizing */
+        }
+
+        textarea:focus {
+            background: #e0e0e0;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            transform: scale(1.02);
+        }
+        .footer {
+            background: #000000;
+            color: #ffffff;
+            padding: 2em 0;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            z-index: 999;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            color: #ffffff; /* لون العنوان */
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin: 10px 0;
+        }
+
+        .footer-section ul li a {
+            color: #868686;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ffffff; /* لون الروابط عند التمرير */
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* تباعد بين الروابط */
+        }
+
+        .social-links a {
+            color: #868686;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ffffff; /* لون الروابط عند التمرير */
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .bin a img {
+            display: inline-block;
+            max-width: 350px;
+            max-height: 350px;
+            color: thistle;
+            background-color: #FFF;
+            margin-left: 10px;
+            margin-top: 5px;
+            padding:15px;
+            transition: transform 0.3s ease-in-out;
+        
+        }
+        .bin a img:hover {
+            display: inline;
+            background-color: burlywood;
+            border-radius: 10px;
+            width: 50px;
+            height: 50px;
+            padding-top: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
+            /* filter: blur(5px);
+            transition: filter 0.5s ease-in-out; */
+            transform: scale(0.8);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            
+        }
+        .bin a img:active {
+            display: inline-flex;
+            background-color:rgb(172, 143, 105);
+            border-radius: 10px;
+            width: 50x;
+            height: 50px;
+            padding-top: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
+
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        .falling-icon {
+            position: absolute;
+            animation: fall 10s linear infinite;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .falling-icon:nth-child(1) { left: 5%; animation-duration: 12s; }
+        .falling-icon:nth-child(2) { left: 15%; animation-duration: 15s; }
+        .falling-icon:nth-child(3) { left: 25%; animation-duration: 10s; }
+        .falling-icon:nth-child(4) { left: 35%; animation-duration: 14s; }
+        .falling-icon:nth-child(5) { left: 45%; animation-duration: 11s; }
+        .falling-icon:nth-child(6) { left: 55%; animation-duration: 13s; }
+        .falling-icon:nth-child(7) { left: 65%; animation-duration: 16s; }
+        .falling-icon:nth-child(8) { left: 75%; animation-duration: 9s; }
+        .falling-icon:nth-child(9) { left: 85%; animation-duration: 12s; }
+        .falling-icon:nth-child(10) { left: 95%; animation-duration: 14s; }
+        
+
+    </style>
+</head>
+<body>
+    <div class="falling-icon">🏆</div>
+    <div class="falling-icon">⭐</div>
+    <div class="falling-icon">🎉</div>
+    <div class="falling-icon">🎖️</div>
+    <div class="falling-icon">🏅</div>
+    <div class="falling-icon">🎊</div>
+    <div class="falling-icon">🎈</div>
+    <div class="falling-icon">🏆</div>
+    <div class="falling-icon">⭐</div>
+    <div class="falling-icon">🎉</div>
+<header class="header">
+</header>
+
+    <form onsubmit="sendEmail(); reset(); return false;">
+        <div class="container">
+            <h2>نسيت كلمة السر</h2>
+            <input type="text" placeholder="Enter your name" id="name" class="input-field" required>
+            <input type="email" placeholder="Enter your email" id="email" class="input-field" required>
+            <textarea placeholder="أكتب رسالتك هنا" id="message" class="input-field" rows="4" required></textarea>
+            <button id="submit" type="submit" class="btn">تأكيد</button>
+            <button type="button" class="btn" onclick="window.location.href='login.html'">العودة لتسجيل الدخول</button>
+        </div>    
+    </form>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail() {
+            Email.send({
+                SecureToken : "e76b1af8-43f9-4019-8f4f-2d28fbfb3c00",
+                To : 'yousefnon7@gmail.com',
+                From : "yousefnon7@gmail.com",
+                Subject : "Forgot Password",
+                Body : "name: " + document.getElementById("name").value +
+                        "<br>email: " + document.getElementById("email").value +
+                        "<br>message: " + document.getElementById("message").value
+            }).then(
+                message => alert("A message has been sent to the support, please wait a minute")
+            );
+            window.location.href=('login.html');
+        }
+    </script>
+
+</body>
+<footer class="footer">
+    <div class="footer-content">
+        <!-- من نحن -->
+        <div class="footer-section about">
+            <h3>من نحن</h3>
+            <ul>
+                <li><a href="../About us/aboutas.html">ضغط هنا</a></li>
+                <!-- <li><a href="#example2">مثال 2</a></li>
+                <li><a href="#example3">مثال 3</a></li> -->
+            </ul>
+        </div>
+
+        <!-- اتصل بنا -->
+        <div class="footer-section contact">
+            <h3>اتصل بنا</h3>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61550113192768" target="_blank">فيسبوك</a>
+                <a href="http://wa.me/+201278515002" target="_blank">واتساب</a>
+                <!-- <a href="http://instagram.com" target="_blank">إنستجرام</a> -->
+            </div>
+        </div>
+
+        <!-- السياسة والخصوصية -->
+        <div class="footer-section policy">
+            <h3>السياسة والخصوصية</h3>
+            <ul>
+                <li><a href="https://www.termsfeed.com/live/93ba118c-c2e5-4871-8d9e-3ffe90006c36">السياسة والخصوصية</a></li>
+                <li><a href="../usage-policy.html">سياسة الاستخدام</a></li>
+                <li><a href="https://www.termsfeed.com/live/f9fb4905-a57d-4323-98f5-7222921fb8ae">الشروط والأحكام</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- حقوق النشر -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 SanaPro. جميع الحقوق محفوظة.</p>
+    </div>
+</footer>
+</html>

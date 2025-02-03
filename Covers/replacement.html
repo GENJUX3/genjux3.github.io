@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة الاستبدال</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="icon" href="../Common Image/web.jpg" type="image/x-icon" />
+    <style>
+        
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* لون خلفية بنفسجي مائل للأزرق */
+    overflow-x: hidden;
+    
+}
+body {
+    position: relative;
+}
+body::before{
+    
+    background-image: url('');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(7px);
+    z-index: -1;
+}
+a {
+    text-decoration: none;
+    color: #fff;
+}
+/* Header */
+.header {
+    background-color:rgb(255, 255, 255);
+    backdrop-filter: blur(50px);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    box-shadow: #000000 0px 0px 10px;
+     
+    * {
+        padding: 0;
+        margin: 0;
+        font-family:sans-serif;
+        }
+        body
+        {
+        background-color: #000000;
+        }
+        ul {
+        list-style: none;
+        background-color:rgba(0, 0, 0, 0);
+        text-align: center;
+        color: #000000;
+        
+        }
+        ul li {
+        display: inline-block;
+        position: relative;
+        
+
+        }
+        ul li a {
+        display: block;
+        padding: 20px 25px;
+        color: #000000;
+        text-decoration: none;
+        text-align: center;
+        font-size: 16px;
+        transition:  transform 0.3s ease-in-out;
+        border-radius: 10px;
+        
+        }
+        ul li a:hover {
+            transform: scale(0.84);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
+        
+        ul li ul.dropdown li {
+        display: block;
+        background-color: #ffffff;
+        margin: 2px 0px;
+        
+        }
+        ul li ul.dropdown {
+        width:auto;
+        margin-left: 5px;
+        background-color: #ffffff;
+        position: absolute;
+        z-index: 999;
+        display: none;
+        border-radius: 3px;
+        border-color: rgb(0, 0, 0);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 1.5);
+        }
+        
+        ul li a:hover {
+        background: rgb(0, 0, 0);
+        border-radius: 10px;
+        color: #ffffff;
+        
+        }
+        ul li a:active {
+            background: rgb(95, 242, 105);
+            border-radius: 10px;
+            color: #ffffff;
+            
+        }
+        ul li:hover ul.dropdown{
+        display: block;
+        }
+    
+}
+
+.header img {
+   width: 120px;
+   margin-right: 100px;
+   transition: transform 0.1s;
+
+}
+.header img:active {
+    max-width: 120px;
+    margin-right: 100px;
+    transform:scale(0.9);
+
+ }
+
+
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 25%;
+    margin-top: 0px;
+    position: relative;
+    right: 20px;
+    
+}
+.search-bar input {
+    width:300px;
+    padding: 0.5em;
+    border: rgb(0, 0, 0) 1px solid;
+    border-radius: 4px;
+    background-color: transparent;
+    margin-left: 0px;
+    margin-right: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    
+}
+.search-bar input:focus {
+    width:300px;
+    padding: 0.5em;
+    border: rgb(0, 0, 0) 1px solid;
+    border-radius: 4px;
+    background-color: transparent;
+    margin-left: 0px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+.search-bar button {
+    padding: 0.5em 1em;
+    border: none;
+    background:rgb(0, 0, 0);
+    color:rgb(255, 255, 255);
+    border-radius: 4px;
+    margin-left: 0.5em;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.search-bar button:hover {
+    padding: 0.5em 1em;
+    border: none;
+    background-color:rgb(73, 245, 119);
+    color:rgb(255, 255, 255);
+    border-radius: 4px;
+    margin-left: 0.5em;
+}
+.search-bar button:active {
+    padding: 0.5em 1em;
+    border: none;
+    background-color:rgb(247, 176, 82);
+    color:black;
+    border-radius: 4px;
+    margin-left: 0.5em;
+    transition: transform 0.2s;
+    transform: scale(0.80);
+}
+.nav {
+    margin-top: 0px;
+    height: 60px;
+    word-spacing: 0px;
+    display: flex;
+    align-items: center;
+}
+.nav a {
+    margin: 0px;
+    font-size: 2em;
+    word-spacing: 2px;
+}
+
+/* .bin a img:active {
+    background-color:rgb(172, 143, 105);
+    border-radius: 10px;
+} */
+/* Animation for falling icons */
+@keyframes fall {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+.falling-icon {
+    position: absolute;
+    animation: fall 10s linear infinite;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.634);
+}
+
+.falling-icon:nth-child(1) { left: 5%; animation-duration: 12s; }
+.falling-icon:nth-child(2) { left: 15%; animation-duration: 15s; }
+.falling-icon:nth-child(3) { left: 25%; animation-duration: 10s; }
+.falling-icon:nth-child(4) { left: 35%; animation-duration: 14s; }
+.falling-icon:nth-child(5) { left: 45%; animation-duration: 11s; }
+.falling-icon:nth-child(6) { left: 55%; animation-duration: 13s; }
+.falling-icon:nth-child(7) { left: 65%; animation-duration: 16s; }
+.falling-icon:nth-child(8) { left: 75%; animation-duration: 9s; }
+.falling-icon:nth-child(9) { left: 85%; animation-duration: 12s; }
+.falling-icon:nth-child(10) { left: 95%; animation-duration: 14s; }
+
+
+.footer {
+    background: #000000;
+    color: #ffffff;
+    padding: 2em 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #ffffff; /* لون العنوان */
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 10px 0;
+}
+
+.footer-section ul li a {
+    color: #868686;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ffffff; /* لون الروابط عند التمرير */
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* تباعد بين الروابط */
+}
+
+.social-links a {
+    color: #868686;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ffffff; /* لون الروابط عند التمرير */
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+</style>
+</head>
+<body>
+
+
+
+    <header class="header">
+
+        <a href="../index.html" alt="home">
+            <img src="../Common Image/web.jpg" alt="Resin Art Moon Store" class="logo">
+        </a>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search for anything">
+            <button>
+                <a href="#">Search</a>
+            </button>
+        </div>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="../index.html">الصفحة الرئيسية</a></li>
+                
+
+                <li>
+                    <li>
+                        <!-- not going to direct us as this is mainly displayed to be hovered over to go to the desired page -->
+                        <a href="../Covers/covers.html">الاستبدالات &#x25BE;</a>
+
+                        <ul class="dropdown">
+                            <!-- <li><a href="../Categories/web.html">Free Fire</a></li> directs us to the accessories page -->
+                            <!-- <li><a href="../key chains/key_chain.html">Pubg</a></li> directs us to the kaychains page -->
+                            <!-- <li><a href="../trays/Trays_site.html">Trays</a></li> directs us to the tray page -->
+                            <!-- <li><a href="../wall clocks/wall_clocks.html">Wall Clock</a></li> directs us to the wall clocks page -->
+                        </ul>
+                    </li>
+                </li>
+
+                <li><a href="../task2.html">النقاط: <span id="points-counter">0</span></a></li>
+            </ul>
+        </nav>
+        
+        <div class="bin">
+            <!--cart-->
+          <!-- <a href="#">
+              <img src="../Common Image/cart.jpg" alt="CART" style="width:60px;height:60px;">
+          </a> -->
+
+            <!--login-->
+          <!-- <a href="../Register/login.html">
+              <img src="../Common Image/login.jpg" alt="login" style="width:60px;height:60px;position: relative;
+              left: 10px;">
+          </a> -->
+        </div>
+</header>
+
+
+
+
+
+
+<div class="falling-icon">🏆</div>
+<div class="falling-icon">⭐</div>
+<div class="falling-icon">🎉</div>
+<div class="falling-icon">🎖️</div>
+<div class="falling-icon">🏅</div>
+<div class="falling-icon">🎊</div>
+<div class="falling-icon">🎈</div>
+<div class="falling-icon">🏆</div>
+<div class="falling-icon">⭐</div>
+<div class="falling-icon">🎉</div>
+
+
+
+
+<div class="container">
+    <h1>استبدال النقاط</h1>
+
+    <!-- قسم عرض بيانات المنتج -->
+    <div class="product-details">
+        <img id="product-image" src="" alt="صورة المنتج" class="product-image">
+        <p id="product-name">اسم المنتج: <span></span></p>
+        <p id="points-required">عدد النقاط المطلوبة: <span>0</span></p>
+        
+        <label for="file" name="file" id="file">: صورة البروفايل</label><br>
+        <p>(يجب وضع صورة البروفايل لضمان وصول الهدية)</p>
+
+        <div class="file-upload">
+            <div class="file-select">
+                <input type="file" id="profile-image" name="file" required><br><br><br>
+            </div>   
+        </div>
+        
+        <label for="file">رابط الفيسبوك</label><br>
+        <p>(يجب وضع رابط الفيسبوك لضمان وصول الهدية)</p>
+        <input type="url" id="facebook-link" placeholder="                                رابط الفيسبوك" required class="input-field"><br><br>
+
+        <label for="file">ID FREE FIRE / PUBG</label><br>
+        <p>(هذا المكان خاص بلعبة ببجي و فري فاير)</p>
+        <input type="text" id="game-id" placeholder="                                  YOUR ID" required class="input-field"><br>
+    </div>
+    
+    <!-- زر الاستبدال -->
+    <button id="replace-button" onclick="replaceProduct()" aria-required="false">استبدال   </button>
+</div>
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById('facebook-link').focus();
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        let totalPoints = localStorage.getItem('totalPoints') || 0;
+        let pointsCounter = document.getElementById('points-counter');
+        
+        if (pointsCounter) {
+            pointsCounter.textContent = totalPoints;
+        }
+
+        let points = localStorage.getItem('points');
+        let image = localStorage.getItem('image');
+        let name = localStorage.getItem('name');   
+
+        if (points && image && name) {
+            document.getElementById('product-image').src = image;
+            document.getElementById('product-name').innerHTML = `اسم المنتج: <span>${name}</span>`;
+            document.getElementById('points-required').innerHTML = `عدد النقاط المطلوبة: <span>${points}</span>`;
+        } else {
+            alert("لم يتم اختيار منتج!");
+        }
+    });
+
+    function replaceProduct() {
+        let pointsRequired = localStorage.getItem('points');
+        pointsRequired = parseInt(pointsRequired);
+
+        let totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
+        const productImage = document.getElementById('product-image').src;
+        const facebookLink = document.getElementById('facebook-link').value;
+        const gameId = document.getElementById('game-id').value;
+
+        const profileImageFile = document.getElementById('profile-image').files[0];
+
+        if (!profileImageFile) {
+            alert("يرجى رفع صورة البروفايل أولاً.");
+            return;
+        }
+
+        if (totalPoints < pointsRequired) {
+            alert("عدد النقاط المتاحة أقل من النقاط المطلوبة!");
+        } else if (productImage && totalPoints >= pointsRequired) {
+            uploadProfileImage(profileImageFile).then(profileImageUrl => {
+                totalPoints -= pointsRequired;
+                localStorage.setItem('totalPoints', totalPoints); 
+
+                sendEmail(productImage, facebookLink, gameId, profileImageUrl);
+
+                alert(`تم استبدال المنتج بنجاح!\nالملاحظات: سيتم الشحن خلال 24 ساعة أو أقل\nالنقاط المتبقية: ${totalPoints}`);
+                document.getElementById('points-counter').textContent = totalPoints;
+            }).catch(err => {
+                alert("حدث خطأ أثناء رفع الصورة.");
+            });
+        } else {
+            alert("الرجاء اختيار منتج أولاً!");
+        }
+    }
+
+    // دالة رفع الصورة إلى ImgBB
+    function uploadProfileImage(file) {
+        return new Promise((resolve, reject) => {
+            const formData = new FormData();
+            formData.append('image', file);
+
+            // هنا تأكد من أنك تستخدم API KEY الصحيح من ImgBB
+            fetch('https://api.imgbb.com/1/upload?key=246612ef257eced12da941213369f300', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    resolve(data.data.url);  // رابط الصورة من ImgBB
+                } else {
+                    reject("حدث خطأ أثناء رفع الصورة.");
+                }
+            })
+            .catch(error => reject("حدث خطأ أثناء الاتصال بـ ImgBB."));
+        });
+    }
+
+    // دالة إرسال البريد الإلكتروني
+    function sendEmail(productImage, facebookLink, gameId, profileImageUrl) {
+        Email.send({
+            SecureToken: "e76b1af8-43f9-4019-8f4f-2d28fbfb3c00", // تأكد من أنك تستخدم SecureToken الصحيح من حسابك
+            To: 'yousefnon7@gmail.com',  // استبدل بعنوان البريد الإلكتروني الصحيح
+            From: "yousefnon7@gmail.com",  // تأكد من أنك تستخدم البريد الصحيح
+            Subject: "عملية استبدال المنتج",
+            Body: `
+                <strong>تفاصيل استبدال المنتج:</strong><br>
+                <strong>صورة المنتج الذي سيتم استبداله:</strong> <img src="${productImage}" alt="صورة المنتج" style="max-width: 200px;"><br>
+                <strong>رابط الفيسبوك:</strong> ${facebookLink}<br>
+                <strong>ID Free Fire / PUBG:</strong> ${gameId}<br>
+                <strong>صورة البروفايل المرفوعة:</strong> <img src="${profileImageUrl}" alt="صورة البروفايل" style="max-width: 200px;"><br>
+            `
+        }).then(function (message) {
+            console.log("تم إرسال الرسالة بنجاح");
+        }).catch(function (error) {
+            console.error("حدث خطأ أثناء إرسال الرسالة: ", error);
+            alert("لم يتم إرسال البريد الإلكتروني. يرجى المحاولة مرة أخرى.");
+        });
+    }
+</script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .input-field {
+            width: 300px;
+            height: 30px;
+            border-radius: 10px;
+            box-shadow: #000000 0px 0px 7px;
+            border: 2px solid #000000;
+            margin-bottom: 10px;
+            margin-right: 20px;
+            padding:0.5em 0.5em;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin-top: 140px;
+            margin-left: 200px;
+            margin-bottom: 50px;
+            padding: 50px;
+            background-color: #fff;
+            border-radius: 100px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            text-align: center;
+        }
+         .container #notes{
+            margin-top: 0px;
+            width: 300px;
+            height: 30px;
+            border-radius: 10px;
+            box-shadow: #000000 0px 0px 7px;
+            border: 2px solid #000000;
+            margin-right: 90px;
+            margin-bottom: 10px;
+         }
+        
+        .file-upload{
+            border: 2px solid #000000;
+            border-radius: 10px;
+            box-shadow: #000000 0px 0px 7px;
+            width: 300px;
+            height: 21px;
+            padding: 1em 1em;
+            margin-bottom: 10px;
+            margin-left: 90px;
+        }
+        
+        #notes{
+            border: 2px solid #000000;
+            border-radius: 10px;
+            box-shadow: #000000 0px 0px 7px;
+            width: 300px;
+            height: 21px;
+            padding: 0px;
+            margin-bottom: 10px;
+            margin-left: 100px;
+        }
+
+        .card {
+            
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            background-color: #fff;
+        }
+        
+        .card img {
+            width: 100px;
+            height: 100px;
+            
+        }
+        
+        .redeem-btn {
+            width: 70px;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .redeem-btn:hover {
+            background-color: #218838;
+        }
+        .product-details p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000000;
+        }
+        .product-details input {
+            justify-content: center;
+            margin-left: 30px;
+        }
+        .product-details img {
+            width: 110px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        
+        #points-required {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000000;
+        }
+        
+        /**.notes-section  {
+            width: 100%;
+            height: 20px;
+            padding: 10px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            position: relative;
+            right: 15px;
+            resize: none;
+            box-shadow: #000000 0px 0px 3px;
+        }**/
+        
+        #replace-button {
+            max-width: 70px;
+            background-color: rgb(0, 0, 0);
+            border: none;
+            color: rgb(255, 255, 255);
+            padding: 2em 10em;
+            cursor: pointer;
+            border-radius: 4px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.205);
+            margin-top: 20px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            justify-self: center;
+        }
+        
+        #replace-button:hover {
+            background-color: rgb(36, 193, 89);
+            border: none;
+            color: rgb(255, 255, 255);
+            padding: 2em 10em;
+            cursor: pointer;
+            border-radius:20px;
+        }
+        #replace-button:active {
+            background-color: rgb(255, 179, 38);
+            border: none;
+            color: rgb(0, 0, 0);
+            padding: 2em 10em;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: transform 0.1s ease-in-out;
+            transform: scale(0.90);
+        }
+    </style>
+    <!-- Footer -->
+    <<footer class="footer">
+        <div class="footer-content">
+            <!-- من نحن -->
+            <div class="footer-section about">
+                <h3>من نحن</h3>
+                <ul>
+                    <li><a href="../About us/aboutas.html">ضغط هنا</a></li>
+                    <!-- <li><a href="#example2">مثال 2</a></li>
+                    <li><a href="#example3">مثال 3</a></li> -->
+                </ul>
+            </div>
+    
+            <!-- اتصل بنا -->
+            <div class="footer-section contact">
+                <h3>اتصل بنا</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61550113192768" target="_blank">فيسبوك</a>
+                    <a href="http://wa.me/+201278515002" target="_blank">واتساب</a>
+                    <!-- <a href="http://instagram.com" target="_blank">إنستجرام</a> -->
+                </div>
+            </div>
+    
+            <!-- السياسة والخصوصية -->
+            <div class="footer-section policy">
+                <h3>السياسة والخصوصية</h3>
+                <ul>
+                    <li><a href="https://www.termsfeed.com/live/93ba118c-c2e5-4871-8d9e-3ffe90006c36">السياسة والخصوصية</a></li>
+                    <li><a href="../usage-policy.html">سياسة الاستخدام</a></li>
+                    <li><a href="https://www.termsfeed.com/live/f9fb4905-a57d-4323-98f5-7222921fb8ae">الشروط والأحكام</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- حقوق النشر -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 SanaPro. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+</body>
+</html>

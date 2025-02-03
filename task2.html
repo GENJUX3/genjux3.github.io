@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المهمات</title>
+    <style>
+        /* التنسيق العام */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* خلفية بيضاء */
+            color: #000000; /* نص أسود */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            height: 100%;
+            position: relative;
+            overflow: scroll;
+            
+        }
+        a {
+            text-decoration: none;
+            text-wrap-style: none;
+        }
+        
+        /* Header */
+        .header {
+            background-color:rgb(255, 255, 255);
+            backdrop-filter: blur(50px);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5em 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 2;
+            display: flex;
+            flex-direction: row-reverse;
+            box-shadow: #000000 0px 0px 10px;
+            
+            
+             
+            * {
+                padding: 0;
+                margin: 0;
+                font-family:sans-serif;
+                }
+                body
+                {
+                background-color: #000000;
+                }
+                ul {
+                list-style: none;
+                background-color:rgba(255, 255, 255, 0);
+                text-align: center;
+                color: #000000;
+                direction: ltr;
+                
+                }
+                ul li {
+                display: inline-block;
+                position: relative;
+                
+
+                }
+                ul li a {
+                
+                display: block;
+                padding: 20px 25px;
+                color: #000000;
+                text-decoration: none;
+                text-align: center;
+                font-size: 16px;
+                transition:  transform 0.3s ease-in-out;
+                border-radius: 10px;
+                
+                }
+                ul li a:hover {
+                    transform: scale(0.84);
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+                }
+                
+                ul li ul.dropdown li {
+                display: block;
+                background-color: #ffffff;
+                margin: 2px 0px;
+                
+                }
+                ul li ul.dropdown {
+                margin-left: 15px;
+                width:auto;
+                background-color: #ffffff;
+                position: absolute;
+                z-index: 999;
+                display: none;
+                border-radius: 3px;
+                border-color: rgb(0, 0, 0);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 1.5);
+                }
+                
+                ul li a:hover {
+                background: rgb(0, 0, 0);
+                border-radius: 10px;
+                color: #ffffff;
+                
+                }
+                ul li a:active {
+                    background: rgb(95, 242, 105);
+                    border-radius: 10px;
+                    color: #ffffff;
+                    
+                }
+                ul li:hover ul.dropdown{
+                display: block;
+                }
+            
+        }
+        
+        .header img {
+           width: 120px;
+           margin-right: 10px;
+           transition: transform 0.1s;
+
+        }
+        .header img:active {
+            max-width: 120px;
+            margin-right: 10px;
+            transform:scale(0.9);
+ 
+         }
+        
+        
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            width: 25%;
+            margin-top: 0px;
+            position: relative;
+            right: 30px;
+            direction: ltr;
+            
+        }
+        .search-bar input {
+            width:300px;
+            padding: 0.5em;
+            border: rgb(0, 0, 0) 1px solid;
+            border-radius: 4px;
+            background-color: transparent;
+            margin-left: 0px;
+            margin-right: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            
+        }
+        .search-bar input:focus {
+            width:300px;
+            padding: 0.5em;
+            border: rgb(0, 0, 0) 1px solid;
+            border-radius: 4px;
+            background-color: transparent;
+            margin-left: 0px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+        .search-bar button {
+            padding: 0.5em 1em;
+            border: none;
+            background:rgb(0, 0, 0);
+            color:rgb(255, 255, 255);
+            border-radius: 4px;
+            margin-left: 0.5em;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+        .search-bar button:hover {
+            padding: 0.5em 1em;
+            border: none;
+            background-color:rgb(73, 245, 119);
+            color:rgb(255, 255, 255);
+            border-radius: 4px;
+            margin-left: 0.5em;
+        }
+        .search-bar button:active {
+            padding: 0.5em 1em;
+            border: none;
+            background-color:rgb(247, 176, 82);
+            color:black;
+            border-radius: 4px;
+            margin-left: 0.5em;
+            transition: transform 0.2s;
+            transform: scale(0.80);
+        }
+        .nav {
+            margin-top: 0px;
+            height: 60px;
+            word-spacing: 0px;
+            display: flex;
+            align-items: center;
+        }
+        .nav a {
+            margin: 0px;
+            font-size: 2em;
+            word-spacing: 2px;
+        }
+
+        
+
+        /* الجزء الأيمن (جدول المهام) */
+        .right-section {
+            width: 70%;
+            margin-top: 100px;
+            padding: 20px;
+            z-index: 1;
+            
+            
+        }
+
+        .tasks-table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: #000000b5 0px 0px 10px;
+            
+        }
+
+        .tasks-table th, .tasks-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #aaaaaa;
+        }
+
+        .tasks-table th {
+            background-color: #000000; /* خلفية سوداء */
+            color: #ffffff; /* نص أبيض */
+        }
+
+        .tasks-table td {
+            background-color: #ffffff; /* خلفية بيضاء */
+        }
+
+        .view-button {
+            background-color: #000000; /* خلفية سوداء */
+            color: #ffffff; /* نص أبيض */
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-button:hover {
+            background-color: #333333; /* لون أسود فاتح عند التمرير */
+        }
+
+        .view-button:disabled {
+            background-color: #cccccc; /* لون رمادي */
+            cursor: not-allowed;
+        }
+
+        /* الجزء الأيسر (إجمالي النقاط) */
+        .left-section {
+            width: 30%;
+            padding: 20px;
+            
+            text-align: center;
+        }
+
+        .points {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            margin-top: 300px;
+        }
+
+        .redeem-button {
+            background-color: #000000; /* خلفية سوداء */
+            color: #ffffff; /* نص أبيض */
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .redeem-button:hover {
+            background-color: #333333; /* لون أسود فاتح عند التمرير */
+        }
+
+        /* الصفحة المنبثقة */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff; /* خلفية بيضاء */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .popup h2 {
+            margin-bottom: 20px;
+        }
+
+        .popup iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .countdown {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .end-button {
+            background-color: #000000; /* خلفية سوداء */
+            color: #ffffff; /* نص أبيض */
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .end-button:hover {
+            background-color: #333333; /* لون أسود فاتح عند التمرير */
+        }
+
+        /* العداد العلوي */
+        .task-counter {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* عداد 24 ساعة */
+        .timer {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+        /* Animation for falling icons */
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        .falling-icon {
+            position: absolute;
+            animation: fall 10s linear infinite;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.634);
+        }
+
+        .falling-icon:nth-child(1) { left: 5%; animation-duration: 12s; }
+        .falling-icon:nth-child(2) { left: 15%; animation-duration: 15s; }
+        .falling-icon:nth-child(3) { left: 25%; animation-duration: 10s; }
+        .falling-icon:nth-child(4) { left: 35%; animation-duration: 14s; }
+        .falling-icon:nth-child(5) { left: 45%; animation-duration: 11s; }
+        .falling-icon:nth-child(6) { left: 55%; animation-duration: 13s; }
+        .falling-icon:nth-child(7) { left: 65%; animation-duration: 16s; }
+        .falling-icon:nth-child(8) { left: 75%; animation-duration: 9s; }
+        .falling-icon:nth-child(9) { left: 85%; animation-duration: 12s; }
+        .falling-icon:nth-child(10) { left: 95%; animation-duration: 14s; }
+
+        /* تصميم الصفحة المنبثقة */
+        .popup-message {
+            position: fixed;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5); /* خلفية مظللة */
+            
+            z-index: 1000;
+        }
+
+        .popup-content {
+            background-color: white;
+            border-radius: 15px; /* منحنيات */
+            padding: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 80%;
+            box-shadow: 0 7px 12px rgba(0, 0, 0, 1); /* تأثير ظل */
+            margin-top: 300px;
+            margin-right: 550px;
+            transition: transform 0.3s ease-in-out;
+            transform: scale(1);
+        }
+
+        .popup-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* تصميم زر الإغلاق */
+        .popup-content button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .popup-content button:hover {
+            background-color: #444;
+        }
+
+
+        
+    </style>
+
+    
+</head>
+<body>
+    
+    <header class="header">
+        <a href="index.html" alt="home">
+            <!--uses an image displaying the brand name with a width of 120px and height of 45px and is setup as a main anchoer as per the relative postion-->
+            <img src="Common Image\web.jpg" alt="Resin Art Moon Store" style="width: 120px; height:45px; margin:10px 60px ;position: relative;
+            right: 93px; bottom :1px" class="logo">
+        </a>  
+
+            <!--search bar class setup with a placeholder-->
+          <div class="search-bar">
+            <input type="text" placeholder="Search for anything">
+
+            <button>
+                <!--work in progress as it requires a database and backend-->
+              <p>Search</p>
+            </button>
+
+          </div>
+
+
+          <!--navigation bar-->
+          <nav class="nav">
+            <ul>
+                  <li><a href="index.html">الصفحة الرئيسية</a></li>    <!--home button sends us to the homepage-->
+
+
+                
+                    <!--a category dropdown list-->
+                    <li>
+                        <!-- not going to direct us as this is mainly displayed to be hovered over to go to the desired page -->
+                        <a href="Covers\covers.html">الاستبدالات &#x25BE;</a>
+                        <ul class="dropdown">
+                            <!-- <li><a href="Categories\web.html">Free Fire</a></li> directs us to the accessories page -->
+                            <!-- <li><a href="Covers\covers.html">Sanalika</a></li> directs us to the covers page -->
+                            <!-- <li><a href="key chains\key_chain.html">Pubg</a></li> directs us to the kaychains page -->
+                            <!-- <li><a href="trays\Trays_site.html">بروفايلات</a></li> directs us to the tray page -->
+                            <!-- <li><a href="wall clocks\wall_clocks.html">جواهر</a></li> directs us to the wall clocks page -->
+                        </ul>
+                    </li>
+
+                   
+                   <li><a href="task2.html">المهمات</a></li><!--directs us to the about page where you can learn more about us-->
+            </ul>
+          </nav>
+          
+        <div class="bin">
+
+            <!--work in progress but is mainly the cart where the products we want gets listed  -->
+            <!-- <a href="#">
+                <img src="Common Image\cart.jpg" alt="CART" style="width:60px;height:60px;">
+            </a> -->
+
+            <!--directs us to the login page-->
+            <!-- <a href="Register\login.html">
+                <img src="Common Image\login.jpg" alt="login" style="width:60px;height:60px;position: relative;
+                left: 10px;">
+            </a>             -->
+    
+        </div>
+        
+      </header>
+    <div class="falling-icon">🏆</div>
+    <div class="falling-icon">⭐</div>
+    <div class="falling-icon">🎉</div>
+    <div class="falling-icon">🎖️</div>
+    <div class="falling-icon">🏅</div>
+    <div class="falling-icon">🎊</div>
+    <div class="falling-icon">🎈</div>
+    <div class="falling-icon">🏆</div>
+    <div class="falling-icon">⭐</div>
+    <div class="falling-icon">🎉</div>
+    <!-- الجزء الأيمن (جدول المهام) -->
+    <div class="right-section">
+        <div class="task-counter">0/10</div>
+        <table class="tasks-table">
+            <thead>
+                <tr>
+                    <th>المهمة</th>
+                    <th>الإجراء</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>المهمة الأولى</td>
+                    <td><button class="view-button" onclick="openPopup(1)">مشاهدة</button></td>
+                </tr>
+                <tr>
+                    <td>المهمة الثانية</td>
+                    <td><button class="view-button" onclick="openPopup(2)">مشاهدة</button></td>
+                </tr>
+                <tr>
+                    <td>المهمة الثالثة</td>
+                    <td><button class="view-button" onclick="openPopup(3)">مشاهدة</button></td>
+                </tr>
+                <tr>
+                    <td>المهمة الرابعة</td>
+                    <td><button class="view-button" onclick="openPopup(4)">مشاهدة</button></td>
+                </tr>
+                <tr>
+                    <td>المهمة الخامسة</td>
+                    <td><button class="view-button" onclick="openPopup(5)">مشاهدة</button></td>
+                </tr>
+                <tr>
+                    <td>المهمة السادسة</td>
+                    <td><button class="view-button" onclick="openPopup(6)">مشاهدة</button></td>
+                </tr>
+                <tr>
+                    <td>المهمة السابعة</td>
+                    <td><button class="view-button" onclick="openPopup(7)">مشاهدة</button></td>
+                </tr>
+                <tr>
+                    <td>المهمة الثامنة</td>
+                    <td><button class="view-button" onclick="openPopup(8)">مشاهدة</button></td>
+                </tr>
+                <tr>
+                    <td>المهمة التاسعة</td>
+                    <td><button class="view-button" onclick="openPopup(9)">مشاهدة</button></td>
+                </tr>
+                <tr>
+                    <td>المهمة العاشرة</td>
+                    <td><button class="view-button" onclick="openPopup(10)">مشاهدة</button></td>
+                </tr>
+            </tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- الجزء الأيسر (إجمالي النقاط) -->
+    <div class="left-section">
+        <div class="points">إجمالي النقاط: <span id="total-points">0</span></div>
+        <div class="timer">الوقت المتبقي: <span id="timer">00:00:05</span></div>
+        <!-- <button class="redeem-button" onclick="window.location.href='Covers\covers.html'">استبدال</button> -->
+        <p>(سيتم أحتساب 100 نقطة عند انهاء المهام اليومية)</p>
+    </div>
+
+    <!-- الصفحة المنبثقة -->
+    <div id="popup" class="popup">
+        <h2>مشاهدة الإعلان</h2>
+        <iframe id="ad-iframe" src=""></iframe>
+        <div class="countdown" id="countdown">3</div>
+        <button class="end-button" onclick="endTask()" style="display: none;">إنهاء</button>
+    </div>
+
+    <!-- صفحة منبثقة لإظهار الرسالة -->
+<div id="popup-message" class="popup-message" style="display:none;">
+    <div class="popup-content">
+        <p id="popup-message-text">تم إغلاق المهام. الرجاء المحاولة مرة أخرى بعد انتهاء الوقت.</p>
+        <button onclick="closePopupMessage()">إغلاق</button>
+    </div>
+</div>
+
+
+
+<script>
+    // متغيرات العداد والنقاط
+    let completedTasks = 0;
+    let totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0; // جلب النقاط المحفوظة
+    let tasksDisabled = false;
+    let timerInterval;
+
+    // عرض النقاط وعدد المهام المكتملة عند تحميل الصفحة
+    window.onload = function() {
+        document.querySelector('.task-counter').textContent = `${completedTasks}/5`;
+        document.getElementById('total-points').textContent = totalPoints; // عرض النقاط المحفوظة
+
+        // التحقق من حالة المهام عند تحميل الصفحة
+        checkTasksStatus();
+
+        // استئناف العداد إذا كان هناك وقت متبقي
+        const savedTimeLeft = parseInt(localStorage.getItem('timeLeft'));
+        if (savedTimeLeft > 0) {
+            tasksDisabled = true;
+            startTimer(savedTimeLeft); // استئناف العداد من الوقت المتبقي
+        }
+    };
+
+    // عداد 5 ثوانٍ
+    function startTimer(timeLeft) {
+        const timerElement = document.getElementById('timer');
+        
+        timerInterval = setInterval(() => {
+            const hours = Math.floor(timeLeft / 3600);
+            const minutes = Math.floor((timeLeft % 3600) / 60);
+            const seconds = timeLeft % 60;
+
+            timerElement.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                tasksDisabled = false;
+                completedTasks = 0;
+                document.querySelector('.task-counter').textContent = "0/10";
+                document.querySelectorAll('.view-button').forEach((button, index) => {
+                    button.disabled = false;
+                    button.style.backgroundColor = "#000000";
+                });
+
+                // إزالة الوقت المتبقي من localStorage
+                localStorage.removeItem('timeLeft');
+            } else {
+                timeLeft--;
+                localStorage.setItem('timeLeft', timeLeft); // حفظ الوقت المتبقي
+            }
+        }, 1000);
+    }
+
+    // التحقق من حالة المهام عند تحميل الصفحة
+    function checkTasksStatus() {
+        // التحقق من المهام المكتملة
+        for (let i = 0; i < 10; i++) {
+            if (document.querySelectorAll('.view-button')[i].disabled) {
+                document.querySelectorAll('.view-button')[i].style.backgroundColor = "#cccccc";
+            }
+        }
+    }
+
+    // عرض الرسالة في الصفحة المنبثقة
+    function showPopupMessage() {
+        const popupMessage = document.getElementById('popup-message');
+        const messageText = document.getElementById('popup-message-text');
+        messageText.textContent = "تم إغلاق المهام. الرجاء المحاولة مرة أخرى بعد انتهاء الوقت.";
+        popupMessage.style.display = 'block';
+    }
+
+    // إغلاق الصفحة المنبثقة
+    function closePopupMessage() {
+        const popupMessage = document.getElementById('popup-message');
+        popupMessage.style.display = 'none';
+    }
+
+    // فتح الصفحة المنبثقة (المهام)
+    function openPopup(taskNumber) {
+        if (tasksDisabled) {
+            showPopupMessage(); // عرض الرسالة عند تعطيل المهام
+            return;
+        }
+
+        const popup = document.getElementById('popup');
+        const iframe = document.getElementById('ad-iframe');
+        const countdown = document.getElementById('countdown');
+        const endButton = document.querySelector('.end-button');
+
+        // تعيين رابط الإعلان (يمكن تغييره لكل مهمة)
+        iframe.src = `https://www.example.com?task=${taskNumber}`;
+
+        // إعادة ضبط الصفحة المنبثقة
+        countdown.style.display = 'block';
+        endButton.style.display = 'none';
+        countdown.textContent = '31';
+
+        // إظهار الصفحة المنبثقة
+        popup.style.display = 'block';
+
+        // إعادة تشغيل العداد لكل صفحة جديدة
+        let timeLeft = 31;
+        let countdownInterval = setInterval(() => {
+            timeLeft--;
+            countdown.textContent = timeLeft;
+
+            if (timeLeft <= 0) {
+                clearInterval(countdownInterval);
+                countdown.style.display = 'none';
+                endButton.style.display = 'block';
+            }
+        }, 1000);
+    }
+
+    // إنهاء المهمة
+    function endTask() {
+        const popup = document.getElementById('popup');
+        const taskCounter = document.querySelector('.task-counter');
+
+        // إخفاء الصفحة المنبثقة
+        popup.style.display = 'none';
+
+        // زيادة عدد المهام المكتملة
+        completedTasks++;
+        taskCounter.textContent = `${completedTasks}/10`;
+
+        // تعطيل زر المهمة المكتملة
+        const buttons = document.querySelectorAll('.view-button');
+        buttons[completedTasks - 1].disabled = true;
+        buttons[completedTasks - 1].style.backgroundColor = "#cccccc";
+
+        // إذا أكمل المستخدم جميع المهام، قم بإعطائه 100 نقطة
+        if (completedTasks === 10) {
+            totalPoints += 100;  // زيادة النقاط بمقدار 100
+            alert("تم إتمام جميع المهام! حصلت على 100 نقطة!");
+        }
+
+        // عرض النقاط المُحدثة
+        document.getElementById('total-points').textContent = totalPoints;
+
+        // حفظ النقاط في localStorage
+        localStorage.setItem('totalPoints', totalPoints);
+
+        // إغلاق المهام بعد إتمام الـ 5 مهام
+        if (completedTasks >= 10) {
+            tasksDisabled = true;
+            alert("تم إغلاق المهام. سيتم فتحها مرة أخرى بعد 5 ثوانٍ.");
+            startTimer(5); // بدء العداد من 5 ثوانٍ
+        }
+    }
+</script>
+
+
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>SanaPro</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="sss.js"></script>
+    <link rel="icon" href="Common Image/web.jpg" type="image/x-icon" />    
+<body>
+
+    
+    <!-- Header -->
+    <header class="header">
+        <a href="../Sanalika web/index.html" alt="home">
+            <!--uses an image displaying the brand name with a width of 120px and height of 45px and is setup as a main anchoer as per the relative postion-->
+            <img src="Common Image\web.jpg" alt="Resin Art Moon Store" style="width: 120px; height:45px; margin:10px 60px ;position: relative;
+            right: 93px; bottom :1px" class="logo">
+        </a>  
+
+            <!--search bar class setup with a placeholder-->
+          <div class="search-bar">
+            <input type="text" placeholder="Search for anything">
+
+            <button>
+                <!--work in progress as it requires a database and backend-->
+              <a href="#">Search</a>
+            </button>
+
+          </div>
+
+
+          <!--navigation bar-->
+          <nav class="nav">
+            <ul>
+                  <li><a href="../Sanalika web/index.html">الصفحه الرئيسية</a></li>    <!--home button sends us to the homepage-->
+
+                  
+
+
+                    <!--a category dropdown list-->
+                    <li>
+                        <!-- not going to direct us as this is mainly displayed to be hovered over to go to the desired page -->
+                        <a href="Covers\covers.html">الاستبدالات &#x25BE;</a>
+                        <ul class="dropdown">
+                            <!-- <li><a href="Categories\web.html">Free Fire</a></li> directs us to the accessories page -->
+                            <!-- <li><a href="Covers\covers.html">Sanalika</a></li> directs us to the covers page -->
+                            <!-- <li><a href="key chains\key_chain.html">Pubg</a></li> directs us to the kaychains page -->
+                            <!-- <li><a href="trays\Trays_site.html">بروفايلات</a></li> directs us to the tray page -->
+                            <!-- <li><a href="wall clocks\wall_clocks.html">جواهر</a></li> directs us to the wall clocks page -->
+                        </ul>
+                    </li>
+
+                    <li><a href="task2.html">النقاط: <span id="points-counter">0</span></a></li>
+                    <!--directs us to the the contact page where you can reach out to us for further assistance :) -->
+            </ul>
+          </nav>
+          
+        <div class="bin">
+
+            <!--work in progress but is mainly the cart where the products we want gets listed  -->
+            <!-- <a href="#">
+                <img src="Common Image\cart.jpg" alt="CART" style="width:60px;height:60px;">
+            </a> -->
+
+            <!--directs us to the login page-->
+            <!-- <a href="Register\login.html">
+                <img src="Common Image\login.jpg" alt="login" style="width:60px;height:60px;position: relative;
+                left: 10px;">
+            </a>             -->
+    
+        </div>
+        
+      </header>
+    
+    <div class="falling-icon">🏆</div>
+    <div class="falling-icon">⭐</div>
+    <div class="falling-icon">🎉</div>
+    <div class="falling-icon">🎖️</div>
+    <div class="falling-icon">🏅</div>
+    <div class="falling-icon">🎊</div>
+    <div class="falling-icon">🎈</div>
+    <div class="falling-icon">🏆</div>
+    <div class="falling-icon">⭐</div>
+    <div class="falling-icon">🎉</div>
+
+    <style>
+        .para h1 {
+            color: #000000;
+            position: relative;
+            left: 285px;
+            top: 300px;
+        }
+        .para h3  {
+            color: #000000;
+            position: relative;
+            left: 0px;
+            top: 270px;
+            align-items: center;
+            text-align: center;
+        }
+        .para h4  {
+            color: #000000;
+            position: relative;
+            left: 0px;
+            top: 230px;
+            align-items: center;
+            text-align: center;
+        }
+        .content{
+            opacity: 0;
+            transform: translateY(50px);
+            animation: moveUp 1s forwards;
+        }
+        @keyframes moveUp{
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+
+    <div class="content">
+        <div class="para">
+          <h1> ! SanaPro مـرحبـا بكـم في عالـم </h1><br>
+          <h3>قـم بعمـل المهمـات , أربـح النقـاط , أستبـدلها بالجـوائـز , فـاعلـيات أسبـوعـية</h3><br>
+          <h4 id="h3">!كـن جزء من مجتمع مليء بالحماس و الأثارة</h4><br>
+      </div>  
+      </div>
+
+    <!-- Featured Section -->
+<!-- <section class="section" id="popular">
+    <h1>Discover Popular products</h1>
+        <div class="cards">
+            <div class="card">
+                <img src="site\55.jpg" alt="Backpack 1">
+                <p>E Keychain</p>
+                120.00 LE<br>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="card">
+                <img src="site\66.jpg" alt="Backpack 2">
+                <p>D / M Bookmark</p>
+                250.00 LE<br>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="card">
+                <img src="site\77.jpg" alt="Backpack 3">
+                <p>Pink Tray</p>
+                300.00 LE<br>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="card">
+                <img src="site\88.jpg" alt="Backpack 4">
+                <p>Rose Mirror</p>
+                1000.00 LE<br>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+</section>
+
+<section class="section" id="categories">
+    <h2>Check out our Featured Products</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="site\11.jpg" alt="Backpack 1">
+                <p>Two floored tray</p>
+                1500.00 LE<br>
+                <button>Add to Cart</button>
+            </div>
+            <div class="card">
+                <img src="site\44.jpg" alt="Backpack 2">
+                <p>Mirror Clock</p>
+                1600.00 LE<br>
+                <button>Add to Cart</button>
+            </div>
+            <div class="card">
+                <img src="site\33.jpg" alt="Backpack 3">
+                <p>Red Earings</p>
+                300.00 LE<br>
+                <button>Add to Cart</button>
+            </div>
+            <div class="card">
+                <img src="site\22.jpg" alt="Backpack 4">
+                <p>F KeyChain</p>
+                120.00 LE<br>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+</section>
+
+<section class="section" id="categories">
+    <h2>Check out our New Products</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="site\99.jpg" alt="Backpack 1">
+                <p>Bookmark</p>
+                100.00 LE<br>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="card">
+                <img src="Covers\Cover imges\5.jpg" alt="Backpack 2">
+                <p>Beach Cover</p>
+                500.00 LE<br>
+                <button>Add to Cart</button>
+            </div>
+            
+            <div class="card">
+                <img src="Covers\Cover imges\4.jpg" alt="Backpack 3">
+                <p>Razor Blades Cover</p>
+                300.00 LE<br>
+                <button>Add to Cart</button>
+            </div>
+
+            <div class="card">
+                <img src="Covers\Cover imges\2.jpg" alt="Backpack 4">
+                <p>Flower Power Cover</p>
+                250.00 LE<br>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+</section> -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- من نحن -->
+            <div class="footer-section about">
+                <h3>من نحن</h3>
+                <ul>
+                    <li><a href="../About us/aboutas.html">ضغط هنا</a></li>
+                    <!-- <li><a href="#example2">مثال 2</a></li>
+                    <li><a href="#example3">مثال 3</a></li> -->
+                </ul>
+            </div>
+    
+            <!-- اتصل بنا -->
+            <div class="footer-section contact">
+                <h3>اتصل بنا</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61550113192768" target="_blank">فيسبوك</a>
+                    <a href="http://wa.me/+201278515002" target="_blank">واتساب</a>
+                    <!-- <a href="http://instagram.com" target="_blank">إنستجرام</a> -->
+                </div>
+            </div>
+    
+            <!-- السياسة والخصوصية -->
+            <div class="footer-section policy">
+                <h3>السياسة والخصوصية</h3>
+                <ul>
+                    <li><a href="https://www.termsfeed.com/live/93ba118c-c2e5-4871-8d9e-3ffe90006c36">السياسة والخصوصية</a></li>
+                    <li><a href="../usage-policy.html">سياسة الاستخدام</a></li>
+                    <li><a href="https://www.termsfeed.com/live/f9fb4905-a57d-4323-98f5-7222921fb8ae">الشروط والأحكام</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- حقوق النشر -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 SanaPro. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    
+    <script>
+        // تحديث عدد النقاط في الهيدر عند تحميل الصفحة
+        window.onload = function() {
+            let totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
+            document.getElementById('points-counter').textContent = totalPoints;
+        };
+    </script>
+</body>
+</html>

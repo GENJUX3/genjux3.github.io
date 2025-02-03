@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="icon" href="Common Image/web.jpg" type="image/x-icon" />
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" alt="home">
+            <img src="Common Image/web.jpg" alt="Resin Art Moon Store" style="width: 120px; height:45px; margin:10px 60px ;position: relative;
+            right: 93px; bottom :1px" class="logo">
+        </a>  
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search for anything">
+
+            <button>
+                <!--work in progress as it requires a database and backend-->
+              <a href="#">Search</a>
+            </button>
+
+          </div>
+
+
+          <nav class="nav">
+            <ul>
+                  <li><a href="index.html">الصفحه الرئيسية</a></li>    <!--home button sends us to the homepage-->
+
+                  <li><a href="About us\aboutas.html">من نحن ؟</a></li> <!--about us button sends us to the about us page where you can learn more about our team-->
+
+
+                    <!--a category dropdown list-->
+                    <li>
+                        <!-- not going to direct us as this is mainly displayed to be hovered over to go to the desired page -->
+                        <a href="#">الاستبدالات &#x25BE;</a>
+                        <ul class="dropdown">
+                            <li><a href="Categories\web.html">البطاقات</a></li> <!--directs us to the accessories page-->
+                            <li><a href="Covers\covers.html">باكيتات</a></li> <!--directs us to the covers page-->
+                            <li><a href="key chains\key_chain.html">شارات</a></li> <!--directs us to the kaychains page-->
+                            <li><a href="trays\Trays_site.html">بروفايلات</a></li> <!--directs us to the tray page-->
+                            <li><a href="wall clocks\wall_clocks.html">جواهر</a></li> <!--directs us to the wall clocks page-->
+                        </ul>
+                    </li>
+
+                    <li><a href="task2.html">النقاط: <span id="points-counter">0</span></a></li>
+                    <!--directs us to the the contact page where you can reach out to us for further assistance :) -->
+            </ul>
+          </nav>
+        
+      <div class="bin">
+        <!--CART-->
+          <a href="#">
+              <img src="Common Image/cart.jpg" alt="CART" style="width:60px;height:60px;">
+          </a>
+
+          <!--LOGIN-->
+          <a href="Register\login.html">
+              <img src="Common Image/login.jpg" alt="login" style="width:60px;height:60px;position: relative;
+              left: 10px;">
+          </a>                        
+            
+        </div>
+        
+      </header>
+    <main>
+        <section id="contact-info">
+            <h2>Get in Touch</h2>
+            <p>We'd love to hear from you! Reach out to us using the form below or the contact information provided.</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:resinartmoon@example.com">resinartmoon@gmail.com</a></li>
+                <li><strong>Phone:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                <li><strong>Address:</strong> 123 Main Street, Hometown, Country</li>
+            </ul>
+        </section>
+        
+        <section id="contact-form">
+            <h2>Contact Form</h2>
+            <form action="/submit-contact" method="post">
+
+                <!--entry for name-->
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="First name" required>
+
+                <!--entry for email-->
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="example@example.com" required>
+
+                <!--optinonal message-->
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Enter your message here." required></textarea>
+                
+                <!--submit-->
+                <button type="submit" ondblclick="window.location.href=('site.html')">Send Message</button>
+            </form>
+        
+            
+        </section>
+    </main>
+    <footer class="footer">
+        <div>
+            <a href="facebook.com">
+                <img src="Common Image/2.jpg" alt="facebook"  style="width:40px;height:40px;"></img>
+            </a> 
+            <a href="instagram.com">
+                <img src="Common Image/1.jpg" alt="instagram"  style="width:40px;height:40px;"></img>
+            </a>
+        </div>
+            <p>&copy; 2024 Moon Store. All rights reserved.</p>
+        </footer>
+</body>
+</html>
