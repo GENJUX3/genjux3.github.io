@@ -799,13 +799,13 @@
             // إعادة ضبط الصفحة المنبثقة
             countdown.style.display = 'block';
             endButton.style.display = 'none';
-            countdown.textContent = '3';
+            countdown.textContent = '31';
     
             // إظهار الصفحة المنبثقة
             popup.style.display = 'block';
     
             // إعادة تشغيل العداد لكل صفحة جديدة
-            let timeLeft = 3;
+            let timeLeft = 31;
             let countdownInterval = setInterval(() => {
                 timeLeft--;
                 countdown.textContent = timeLeft;
@@ -837,7 +837,7 @@
     
             // إذا أكمل المستخدم جميع المهام، قم بإعطائه 100 نقطة
             if (completedTasks === 10) {
-                totalPoints += 500;  // زيادة النقاط بمقدار 100
+                totalPoints += 100;  // زيادة النقاط بمقدار 100
                 alert("تم إتمام جميع المهام! حصلت على 100 نقطة!");
             }
     
