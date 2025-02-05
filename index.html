@@ -41,9 +41,6 @@
             <img src="Common Image\web.jpg" alt="Resin Art Moon Store" style="width: 120px; height:45px; margin:10px 60px ;position: relative;
             right: 93px; bottom :1px" class="logo">
         </a>  
-                <div>
-                    <p>معرف المستخدم: <span id="user-id-display"></span></p> <!-- سيتم عرض المعرف هنا -->
-                </div>
 
             <!--search bar class setup with a placeholder-->
           <!-- <div class="search-bar">
@@ -54,7 +51,9 @@
             </button>
 
           </div> -->
-                
+                <div>
+                    <p>معرف المستخدم: <span id="user-id-display"></span></p> <!-- سيتم عرض المعرف هنا -->
+                </div>
 
           <!--navigation bar-->
           <nav class="nav">
@@ -328,37 +327,37 @@
 
     
     <script>
-    // عند تحميل الصفحة لأول مرة، نتحقق إذا كان يوجد معرف عشوائي للمستخدم
-    window.onload = function() {
-        // التحقق من وجود المعرف العشوائي في localStorage
-        let userId = localStorage.getItem('userId');
-        
-        // إذا لم يكن هناك معرف، نقوم بتوليد معرف عشوائي وتخزينه
-        if (!userId) {
-            userId = 'user_' + Math.random().toString(36).substr(2, 9); // توليد معرف عشوائي
-            localStorage.setItem('userId', userId); // تخزين المعرف في localStorage
-        }
-        
-        // الآن، نعرض المعرف في الهيدر أو في مكان آخر في الصفحة
-        document.getElementById('user-id-display').textContent = userId;
-
-        // تحديث عدد النقاط في الهيدر عند تحميل الصفحة
-        let totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
-        document.getElementById('points-counter').textContent = totalPoints;
-    };
+        // عند تحميل الصفحة لأول مرة، نتحقق إذا كان يوجد معرف عشوائي للمستخدم
+        window.onload = function() {
+            // التحقق من وجود المعرف العشوائي في localStorage
+            let userId = localStorage.getItem('userId');
+            
+            // إذا لم يكن هناك معرف، نقوم بتوليد معرف عشوائي وتخزينه
+            if (!userId) {
+                userId = 'user_' + Math.random().toString(36).substr(2, 9); // توليد معرف عشوائي
+                localStorage.setItem('userId', userId); // تخزين المعرف في localStorage
+            }
+            
+            // الآن، نعرض المعرف في الهيدر أو في مكان آخر في الصفحة
+            document.getElementById('user-id-display').textContent = userId;
+    
+            // تحديث عدد النقاط في الهيدر عند تحميل الصفحة
+            let totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
+            document.getElementById('points-counter').textContent = totalPoints;
+        };
     </script>
-
+    
     <script>
         (function(gebb){
-        var d = document,
-            s = d.createElement('script'),
-            l = d.scripts[d.scripts.length - 1];
-        s.settings = gebb || {};
-        s.src = "\/\/starryprotection.com\/b.XoVLsVdMG_lF0oYzW\/cU\/kevmU9Zu_ZXU\/lIk\/P\/TbYqwQNYjhYH4\/NmTDAOtoNYjkAG2iN\/j_gk1XM\/Qv";
-        s.async = true;
-        s.referrerPolicy = 'no-referrer-when-downgrade';
-        l.parentNode.insertBefore(s, l);
-        })({})
+            var d = document,
+                s = d.createElement('script'),
+                l = d.scripts[d.scripts.length - 1];
+            s.settings = gebb || {};
+            s.src = "\/\/starryprotection.com\/b.XoVLsVdMG_lF0oYzW\/cU\/kevmU9Zu_ZXU\/lIk\/P\/TbYqwQNYjhYH4\/NmTDAOtoNYjkAG2iN\/j_gk1XM\/Qv";
+            s.async = true;
+            s.referrerPolicy = 'no-referrer-when-downgrade';
+            l.parentNode.insertBefore(s, l);
+        })({});
     </script>
 
     
