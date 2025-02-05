@@ -43,7 +43,7 @@ a {
     background-color:rgb(255, 255, 255);
     backdrop-filter: blur(50px);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0.5em 0;
@@ -335,28 +335,31 @@ a {
             <img src="../Common Image/web.jpg" alt="Resin Art Moon Store" class="logo">
         </a>
 
-        <div class="search-bar">
+        <!-- <div class="search-bar">
             <input type="text" placeholder="Search for anything">
             <button>
                 <a href="#">Search</a>
             </button>
-        </div>
+        </div> -->
 
         <nav class="nav">
             <ul>
                 <li><a href="../index.html">الصفحة الرئيسية</a></li>
                 
-
+                   <li><a href="../Covers/covers.html">الاستبدالات</a></li> 
                 <li>
                     <li>
                         <!-- not going to direct us as this is mainly displayed to be hovered over to go to the desired page -->
-                        <a href="../Covers/covers.html">الاستبدالات &#x25BE;</a>
-
+                        
+                            <a href="#">الحالة &#x25BE;</a>
                         <ul class="dropdown">
+                            
                             <!-- <li><a href="../Categories/web.html">Free Fire</a></li> directs us to the accessories page -->
                             <!-- <li><a href="../key chains/key_chain.html">Pubg</a></li> directs us to the kaychains page -->
                             <!-- <li><a href="../trays/Trays_site.html">Trays</a></li> directs us to the tray page -->
                             <!-- <li><a href="../wall clocks/wall_clocks.html">Wall Clock</a></li> directs us to the wall clocks page -->
+                            <li><a href="../orders.html">الطلبات</a></li>
+                            <li><a href="../admin.html">الإدارة</a></li>
                         </ul>
                     </li>
                 </li>
@@ -493,7 +496,6 @@ a {
         const productImage = document.getElementById('product-image').src;
         const facebookLink = document.getElementById('facebook-link').value;
         const gameId = document.getElementById('game-id').value;
-
         const profileImageFile = document.getElementById('profile-image').files[0];
 
         if (!profileImageFile) {
@@ -505,13 +507,37 @@ a {
             alert("عدد النقاط المتاحة أقل من النقاط المطلوبة!");
         } else if (productImage && totalPoints >= pointsRequired) {
             uploadProfileImage(profileImageFile).then(profileImageUrl => {
+                // خصم النقاط
                 totalPoints -= pointsRequired;
                 localStorage.setItem('totalPoints', totalPoints); 
 
-                sendEmail(productImage, facebookLink, gameId, profileImageUrl);
+                // استرجاع الطلبات السابقة من localStorage
+                let orders = JSON.parse(localStorage.getItem('orders')) || [];
 
-                alert(`تم استبدال المنتج بنجاح!\nالملاحظات: سيتم الشحن خلال 24 ساعة أو أقل\nالنقاط المتبقية: ${totalPoints}`);
+                // إنشاء كائن الطلب الجديد
+                let newOrder = {
+                    productImage: productImage,
+                    productName: document.getElementById('product-name').innerText,
+                    facebookLink: facebookLink,
+                    gameId: gameId,
+                    pointsBefore: totalPoints + pointsRequired, // النقاط قبل الخصم
+                    pointsAfter: totalPoints, // النقاط بعد الخصم
+                    profileImage: profileImageUrl,
+                    timestamp: new Date().toLocaleString()
+                };
+
+                // إضافة الطلب إلى القائمة
+                orders.push(newOrder);
+
+                // حفظ الطلبات في localStorage
+                localStorage.setItem('orders', JSON.stringify(orders));
+
+                // تحديث عدد النقاط المتبقية
                 document.getElementById('points-counter').textContent = totalPoints;
+
+                // **عرض الرسالة للمستخدم بدون ذكر لوحة التحكم**
+                alert(`تم استبدال المنتج بنجاح!\nالملاحظات: سيتم الشحن خلال 24 ساعة أو أقل\nالنقاط المتبقية: ${totalPoints}`);
+
             }).catch(err => {
                 alert("حدث خطأ أثناء رفع الصورة.");
             });
@@ -519,6 +545,7 @@ a {
             alert("الرجاء اختيار منتج أولاً!");
         }
     }
+    
 
     // دالة رفع الصورة إلى ImgBB
     function uploadProfileImage(file) {

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلباتي</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            direction: rtl;
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+        /* Header */
+        .header {
+            background-color:rgb(255, 255, 255);
+            backdrop-filter: blur(50px);
+            display: flex;
+            flex-direction: row-reverse;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5em 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+            box-shadow: #000000 0px 0px 10px;
+             
+            * {
+                padding: 0;
+                margin: 0;
+                font-family:sans-serif;
+                }
+                body
+                {
+                background-color: #000000;
+                }
+                ul {
+                list-style: none;
+                background-color:rgba(0, 0, 0, 0);
+                text-align: center;
+                color: #000000;
+                
+                }
+                ul li {
+                display: inline-block;
+                position: relative;
+                
+
+                }
+                ul li a {
+                display: block;
+                padding: 20px 25px;
+                color: #000000;
+                text-decoration: none;
+                text-align: center;
+                font-size: 16px;
+                transition:  transform 0.3s ease-in-out;
+                border-radius: 10px;
+                
+                }
+                ul li a:hover {
+                    transform: scale(0.84);
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+                }
+                
+                ul li ul.dropdown li {
+                display: block;
+                background-color: #ffffff;
+                margin: 2px 0px;
+                
+                }
+                ul li ul.dropdown {
+                width:auto;
+                margin-left: 5px;
+                background-color: #ffffff;
+                position: absolute;
+                z-index: 999;
+                display: none;
+                border-radius: 3px;
+                border-color: rgb(0, 0, 0);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 1.5);
+                }
+                
+                ul li a:hover {
+                background: rgb(0, 0, 0);
+                border-radius: 10px;
+                color: #ffffff;
+                
+                }
+                ul li a:active {
+                    background: rgb(95, 242, 105);
+                    border-radius: 10px;
+                    color: #ffffff;
+                    
+                }
+                ul li:hover ul.dropdown{
+                display: block;
+                }
+            
+        }
+        
+        .header img {
+           width: 130px;
+           margin-right: 0px;
+           margin-left: 50px;
+           transition: transform 0.1s;
+           position: relative;
+           left: -30px;
+
+        }
+        .header img:active {
+            max-width: 120px;
+            margin-right: 0px;
+            transform:scale(0.9);
+ 
+         }
+        
+        
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            width: 25%;
+            margin-top: 0px;
+            position: relative;
+            right: 30px;
+            
+        }
+        .search-bar input {
+            width:300px;
+            padding: 0.5em;
+            border: rgb(0, 0, 0) 1px solid;
+            border-radius: 4px;
+            background-color: transparent;
+            margin-left: -40px;
+            margin-right: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            
+        }
+        .search-bar input:focus {
+            width:300px;
+            padding: 0.5em;
+            border: rgb(0, 0, 0) 1px solid;
+            border-radius: 4px;
+            background-color: transparent;
+            margin-left: 0px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+        .search-bar button {
+            padding: 0.5em 1em;
+            border: none;
+            background:rgb(0, 0, 0);
+            color:rgb(255, 255, 255);
+            border-radius: 4px;
+            margin-left: 0.5em;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+        .search-bar button:hover {
+            padding: 0.5em 1em;
+            border: none;
+            background-color:rgb(73, 245, 119);
+            color:rgb(255, 255, 255);
+            border-radius: 4px;
+            margin-left: 0.5em;
+        }
+        .search-bar button:active {
+            padding: 0.5em 1em;
+            border: none;
+            background-color:rgb(247, 176, 82);
+            color:black;
+            border-radius: 4px;
+            margin-left: 0.5em;
+            transition: transform 0.2s;
+            transform: scale(0.80);
+        }
+        .nav {
+            margin-top: 0px;
+            height: 60px;
+            word-spacing: 0px;
+            display: flex;
+            align-items: center;
+        }
+        .nav a {
+            margin: 0px;
+            font-size: 2em;
+            word-spacing: 2px;
+        }
+        .orders-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+        }
+        .order-container {
+            width: 500px;
+            background: white;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            position: relative;
+        }
+        .order img {
+            max-width: 120px;  /* عرض الصورة */
+            height: 80px;      /* طول الصورة ليصبح مستطيل */
+            border-radius: 5px;
+        }
+        .profile-image {
+            max-width: 170px;
+            height: 350px;
+            border-radius: 5px;  /* يمكنك تعديلها لإعطاء الزوايا المستديرة أو تركها مستطيلة */
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        .order-content {
+            flex: 1;
+            padding-right: 100px; /* لإزاحة المحتوى بسبب الصورة */
+        }
+        .order p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .order-status {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #007bff;
+            text-align: center;
+        }
+        .rejected {
+            color: red;
+        }
+        .order a {
+            word-wrap: break-word;
+            display: block;
+            font-size: 12px;
+        }
+        .delete-btn {
+            background: red;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            box-shadow: #000000 0px 0px 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+
+        <a href="../index.html" alt="home">
+            <img src="../Common Image/web.jpg" alt="Resin Art Moon Store" class="logo">
+        </a>
+
+        <!-- <div class="search-bar">
+            <input type="text" placeholder="Search for anything">
+            <button>
+                <a href="#">Search</a>
+            </button>
+        </div> -->
+
+        <nav class="nav">
+            <ul>
+                <li><a href="../index.html">الصفحه الرئيسية</a></li>    <!--home button sends us to the homepage-->
+
+                <li><a href="Covers\covers.html">الاستبدالات</a></li>
+
+
+                  <!--a category dropdown list-->
+                  <li>
+                      <!-- not going to direct us as this is mainly displayed to be hovered over to go to the desired page -->
+                      <!-- <a href="#">الحالة &#x25BE;</a> -->
+                      <ul class="dropdown">
+                          <!-- <li><a href="Categories\web.html">Free Fire</a></li> directs us to the accessories page  Covers\covers.html-->
+                          <!-- <li><a href="Covers\covers.html">Sanalika</a></li> directs us to the covers page -->
+                          <!-- <li><a href="key chains\key_chain.html">Pubg</a></li> directs us to the kaychains page -->
+                          <!-- <li><a href="trays\Trays_site.html">بروفايلات</a></li> directs us to the tray page -->
+                          <!-- <li><a href="wall clocks\wall_clocks.html">جواهر</a></li> directs us to the wall clocks page -->
+                           <!-- <li><a href="orders.html">الطلبات</a></li> -->
+                           <li><a href="../admin.html">الإدارة</a></li>
+                      </ul>
+                  </li>
+                  
+
+                  <li><a href="../task2.html">النقاط: <span id="points-counter">0</span></a></li>
+            </ul>
+        </nav>
+        
+        <div class="bin">
+            <!--cart-->
+          <!-- <a href="#">
+              <img src="../Common Image/cart.jpg" alt="CART" style="width:60px;height:60px;">
+          </a> -->
+
+            <!--login-->
+          <!-- <a href="../Register/login.html">
+              <img src="../Common Image/login.jpg" alt="login" style="width:60px;height:60px;position: relative;
+              left: 10px;">
+          </a> -->
+        </div>
+</header>
+
+
+<script>
+    // تحديث عدد النقاط في الهيدر عند تحميل الصفحة
+    window.onload = function() {
+        let totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
+        document.getElementById('points-counter').textContent = totalPoints;
+    };
+</script>
+
+    <h1 style="margin-top: 130px;">طلباتي</h1>
+    <div class="orders-container" id="user-orders-list"></div>
+
+    <script>
+        // جلب الطلبات من localStorage
+        let orders = JSON.parse(localStorage.getItem('orders')) || [];
+        let userOrdersContainer = document.getElementById("user-orders-list");
+
+        if (orders.length === 0) {
+            userOrdersContainer.innerHTML = "<p>لا توجد طلبات حتى الآن.</p>";
+        } else {
+            orders.forEach((order, index) => {
+                // عرض الطلبات فقط التي تخص المستخدم
+                let orderDiv = document.createElement("div");
+                orderDiv.classList.add("order-container");
+                orderDiv.innerHTML = `
+                    <img src="${order.profileImage}" alt="صورة البروفايل" class="profile-image">
+                    <div class="order-content">
+                        <img src="${order.productImage}" alt="صورة المنتج">
+                        <p><strong>اسم المنتج:</strong> ${order.productName}</p>
+                        <p><strong>رابط الفيسبوك:</strong> <a href="${order.facebookLink}" target="_blank">${order.facebookLink}</a></p>
+                        <p><strong>ID Free Fire / PUBG:</strong> ${order.gameId}</p>
+                        <p><strong>النقاط قبل الاستبدال:</strong> ${order.pointsBefore}</p>
+                        <p><strong>النقاط بعد الاستبدال:</strong> ${order.pointsAfter}</p>
+                        <p><strong>وقت الطلب:</strong> ${order.timestamp}</p>
+                        <div class="order-status">
+                            ${order.status === 'تمت عملية الاستبدال بنجاح' ? 'تمت عملية الاستبدال بنجاح' : (order.status === 'تم رفض الاستبدال' ? 'لم تتم عملية الاستبدال، الرجاء التواصل مع الإدارة' : 'قيد المراجعة')}
+                        </div>
+                        ${order.status === 'تمت عملية الاستبدال بنجاح' || order.status === 'تم رفض الاستبدال' ? `<button class="delete-btn" onclick="deleteOrder(${index})">حذف الطلب</button>` : ''}
+                    </div>
+                `;
+                userOrdersContainer.appendChild(orderDiv);
+            });
+        }
+
+        function deleteOrder(index) {
+            let confirmDelete = confirm("هل أنت متأكد من حذف هذا الطلب؟");
+            if (confirmDelete) {
+                orders.splice(index, 1); // إزالة الطلب من المصفوفة
+                localStorage.setItem('orders', JSON.stringify(orders)); // تحديث localStorage
+
+                // إزالة الطلب من الواجهة
+                document.getElementById("user-orders-list").children[index].remove();
+                alert("تم حذف الطلب بنجاح.");
+            }
+        }
+    </script>
+
+</body>
+</html>

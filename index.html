@@ -32,6 +32,7 @@
     <meta name="monetag" content="00e5af0072b88df3fbe9d7087d7b6f9d">
 <body>
 
+    <!-- عرض معرف المستخدم -->
     
     <!-- Header -->
     <header class="header">
@@ -40,42 +41,48 @@
             <img src="Common Image\web.jpg" alt="Resin Art Moon Store" style="width: 120px; height:45px; margin:10px 60px ;position: relative;
             right: 93px; bottom :1px" class="logo">
         </a>  
+                <div>
+                    <p>معرف المستخدم: <span id="user-id-display"></span></p> <!-- سيتم عرض المعرف هنا -->
+                </div>
 
             <!--search bar class setup with a placeholder-->
-          <div class="search-bar">
+          <!-- <div class="search-bar">
             <input type="text" placeholder="Search for anything">
 
             <button>
-                <!--work in progress as it requires a database and backend-->
               <a href="#">Search</a>
             </button>
 
-          </div>
-
+          </div> -->
+                
 
           <!--navigation bar-->
           <nav class="nav">
             <ul>
                   <li><a href="../Sanalika web/index.html">الصفحه الرئيسية</a></li>    <!--home button sends us to the homepage-->
 
-                  
+                  <li><a href="Covers\covers.html">الاستبدالات</a></li>
 
 
                     <!--a category dropdown list-->
                     <li>
                         <!-- not going to direct us as this is mainly displayed to be hovered over to go to the desired page -->
-                        <a href="Covers\covers.html">الاستبدالات &#x25BE;</a>
+                        <a href="#">الحالة &#x25BE;</a>
                         <ul class="dropdown">
-                            <!-- <li><a href="Categories\web.html">Free Fire</a></li> directs us to the accessories page -->
+                            <!-- <li><a href="Categories\web.html">Free Fire</a></li> directs us to the accessories page  Covers\covers.html-->
                             <!-- <li><a href="Covers\covers.html">Sanalika</a></li> directs us to the covers page -->
                             <!-- <li><a href="key chains\key_chain.html">Pubg</a></li> directs us to the kaychains page -->
                             <!-- <li><a href="trays\Trays_site.html">بروفايلات</a></li> directs us to the tray page -->
                             <!-- <li><a href="wall clocks\wall_clocks.html">جواهر</a></li> directs us to the wall clocks page -->
+                             <li><a href="orders.html">الطلبات</a></li>
+                             <li><a href="admin.html">الإدارة</a></li>
                         </ul>
                     </li>
+                    
 
                     <li><a href="task2.html">النقاط: <span id="points-counter">0</span></a></li>
                     <!--directs us to the the contact page where you can reach out to us for further assistance :) -->
+                    
             </ul>
           </nav>
           
@@ -320,14 +327,25 @@
     </footer>
 
     
-
-    
     <script>
+    // عند تحميل الصفحة لأول مرة، نتحقق إذا كان يوجد معرف عشوائي للمستخدم
+    window.onload = function() {
+        // التحقق من وجود المعرف العشوائي في localStorage
+        let userId = localStorage.getItem('userId');
+        
+        // إذا لم يكن هناك معرف، نقوم بتوليد معرف عشوائي وتخزينه
+        if (!userId) {
+            userId = 'user_' + Math.random().toString(36).substr(2, 9); // توليد معرف عشوائي
+            localStorage.setItem('userId', userId); // تخزين المعرف في localStorage
+        }
+        
+        // الآن، نعرض المعرف في الهيدر أو في مكان آخر في الصفحة
+        document.getElementById('user-id-display').textContent = userId;
+
         // تحديث عدد النقاط في الهيدر عند تحميل الصفحة
-        window.onload = function() {
-            let totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
-            document.getElementById('points-counter').textContent = totalPoints;
-        };
+        let totalPoints = parseInt(localStorage.getItem('totalPoints')) || 0;
+        document.getElementById('points-counter').textContent = totalPoints;
+    };
     </script>
 
     <script>

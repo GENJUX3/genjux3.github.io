@@ -34,7 +34,7 @@ a {
     background-color:rgb(255, 255, 255);
     backdrop-filter: blur(50px);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0.5em 0;
